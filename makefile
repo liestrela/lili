@@ -1,17 +1,15 @@
 CC=gcc
 CFLAGS=-g -Wall -std=c99
 LDFLAGS=
+BIN = lili
 
-SRC=lili.c
-OBJ=$(SRC:.c=.o)
+all: $(BIN)
 
-all: lili
+$(BIN): lili.c
+	$(CC) $(CFLAGS) -o $@ $<
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-lili: $(OBJ)
-	$(CC) -o $@ $^ $(LDFLAGS)
+debug: lili.c
+	$(CC) $(CFLAGS) -DDEBUG -o $(BIN) $<
 
 clean:
-	rm -f lili $(OBJ)
+	rm -f $(BIN)
