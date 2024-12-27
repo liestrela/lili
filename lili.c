@@ -194,7 +194,7 @@ srv_poll(int socket_in)
 
 		small_response(req_sock, 413, "Payload Too Large",
 		               "<h1>The request entity was larger than the "
-					   "limits defined by the server</h1>");
+		               "limits defined by the server</h1>");
 	}
 }
 
